@@ -1,0 +1,100 @@
+# =============================================================================
+# ZOOM Government Services — CI/CD
+# Lints/validates the site, then deploys the static frontend to GoDaddy
+# (cPanel) over FTPS on every push to `main`. Can also be run manually.
+#
+# Required GitHub repository secrets (Settings → Secrets and variables →
+# Actions). NEVER commit these — they are injected at runtime only:
+#   FTP_SERVER       cPanel FTP host, e.g. ftp.zoomgovernmentservices.com
+#   FTP_USERNAME     a dedicated FTP account (scoped to the web root)
+#   FTP_PASSWORD     that account's password
+#   FTP_SERVER_DIR   target directory WITH a trailing slash, e.g. /public_html/
+#
+# See SETUP.md for step-by-step instructions on creating these in GoDaddy.
+# =============================================================================
+name: Deploy to GoDaddy (cPanel)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}        # allow manual runs from the Actions tab
+
+# Never let two deployments race; cancel an in-flight run if a newer push lands.
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # 1) Quality gate — must pass before anything is deployed.
+  # ---------------------------------------------------------------------------
+  test:
+    name: Lint & validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install lint tooling
+        run: npm install --no-audit --no-fund
+
+      - name: Lint HTML
+        run: npm run lint:html
+
+      - name: Check JavaScript syntax
+        run: |
+          set -e
+          for f in public/js/*.js; do
+            echo "Checking $f"
+            node --check "$f"
+          done
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: Lint PHP (contact handler)
+        run: php -l public/contact.php
+
+  # ---------------------------------------------------------------------------
+  # 2) Deploy — only on main, only after tests pass.
+  # ---------------------------------------------------------------------------
+  deploy:
+    name: Deploy to cPanel via FTPS
+    needs: test
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy ./public to web root
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps                 # encrypted FTP; never plain ftp
+          port: 21
+          local-dir: ./public/           # only the frontend is published
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          # Keep deploys incremental (FTP-Deploy stores a manifest on the server).
+          # Set to true ONCE if you ever need to force a full re-upload.
+          dangerous-clean-slate: false
+          # Never upload local/dev or VCS files even if they end up in the tree.
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.DS_Store
+            **/*.map
+            **/README.md

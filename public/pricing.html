@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pricing &amp; Cost Estimator — ZOOM Government Services UAE</title>
+  <meta name="description" content="Transparent, indicative pricing for UAE government services and curated packages. Build a live cost estimate, then request an exact itemised quote.">
+  <link rel="canonical" href="https://zoomgovernmentservices.com/pricing.html">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
+  <link rel="apple-touch-icon" href="assets/favicon-180.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=DM+Mono:wght@400;500&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="ZOOM Government Services — home">
+        <img src="assets/logo.svg" alt="ZOOM Government Services">
+      </a>
+      <nav class="nav-links" id="primary-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="pricing.html" class="active">Pricing</a>
+        <a href="compare.html">Compare</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a class="btn btn-primary btn-mobile" href="contact.html" style="display:none">Get a free quote</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn btn-primary btn-sm" href="contact.html">Get a free quote</a>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav"><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-head dotmap-faint">
+      <div class="container">
+        <div class="breadcrumb"><a href="index.html">Home</a> <span>/</span> Pricing</div>
+        <h1>Clear pricing, no surprises</h1>
+        <p>Curated packages for popular needs, plus a live estimator for everything else. Every figure is indicative — we confirm an exact, itemised quote with government fees before any work begins.</p>
+        <div style="margin-top:22px"><span class="pricing-note"><span data-icon="info"></span> Indicative prices in AED · government fees confirmed per case</span></div>
+      </div>
+    </section>
+
+    <!-- ============================ PACKAGES ============================ -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Popular packages</span>
+          <h2>All-in bundles for the most requested services</h2>
+        </div>
+        <div class="pkg-grid" id="pkgGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============================ ESTIMATOR ============================ -->
+    <section class="section bg-surface" id="estimator">
+      <div class="container">
+        <div class="section-head center">
+          <span class="eyebrow center">Cost estimator</span>
+          <h2>Build your own estimate</h2>
+          <p>Tick the services you need and watch your indicative total update live. When you're ready, send the selection to us for an exact quote.</p>
+        </div>
+        <div class="estimator">
+          <div class="est-panel" id="estPanel"></div>
+          <aside class="est-summary">
+            <h3>Your estimate</h3>
+            <div class="est-selected" id="estSelected"></div>
+            <div class="est-total">
+              <div class="t-row"><span class="lbl">Indicative total</span><span class="t-amt" id="estTotal">0 AED</span></div>
+              <div class="t-range" id="estRange"></div>
+            </div>
+            <a class="btn btn-primary btn-block" id="estQuote" href="contact.html">Request exact quote</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-band">
+          <h2>Prefer to just ask?</h2>
+          <p>Send us your goal and we'll prepare a tailored, itemised quote — usually within 24 hours.</p>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="contact.html">Get a free quote</a>
+            <a class="btn btn-white" data-bind="whatsapp-href" data-msg="Hello ZOOM, I'd like a price for a government service." href="#">WhatsApp us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo.svg" alt="ZOOM Government Services">
+          <p>Your partner for fast, transparent UAE government services — visas, business setup, PRO, attestation and more, across all seven emirates.</p>
+          <div class="footer-social">
+            <a data-social="instagram" href="#" aria-label="Instagram" data-icon="instagram"></a>
+            <a data-social="facebook" href="#" aria-label="Facebook" data-icon="facebook"></a>
+            <a data-social="linkedin" href="#" aria-label="LinkedIn" data-icon="linkedin"></a>
+            <a data-social="x" href="#" aria-label="X" data-icon="twitter"></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html?cat=visas">Visas &amp; Immigration</a></li>
+            <li><a href="services.html?cat=business">Business Setup</a></li>
+            <li><a href="services.html?cat=pro">PRO &amp; Liaison</a></li>
+            <li><a href="services.html?cat=attestation">Attestation</a></li>
+            <li><a href="services.html?cat=tax">Tax &amp; VAT</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="compare.html">Compare services</a></li>
+            <li><a href="services.html">All services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get in touch</h4>
+          <ul>
+            <li><a class="ci-val" data-bind="phone-href" href="#"><span data-bind="phone"></span></a></li>
+            <li><a class="ci-val" data-bind="email-href" href="#"><span data-bind="email"></span></a></li>
+            <li><a data-bind="whatsapp-href" href="#">WhatsApp us</a></li>
+            <li><span data-bind="hours"></span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-bind="year"></span> <span data-bind="brand"></span>. All rights reserved.</span>
+        <span class="disclaimer">ZOOM Government Services is a private service provider and is not a government department or authority. Prices shown are indicative; final government fees are confirmed per case.</span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="wa-float" href="#" aria-label="Chat on WhatsApp" data-icon="whatsapp"></a>
+
+  <script src="data/services.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/pricing.js"></script>
+</body>
+</html>

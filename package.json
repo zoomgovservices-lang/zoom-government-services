@@ -1,0 +1,20 @@
+{
+  "name": "zoom-government-services",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Marketing and service-catalogue website for ZOOM Government Services (zoomgovernmentservices.com) — a UAE government-services brokerage.",
+  "homepage": "https://zoomgovernmentservices.com",
+  "scripts": {
+    "lint:html": "htmlhint \"public/**/*.html\"",
+    "lint:js": "for f in public/js/*.js public/data/*.js; do node --check \"$f\" || exit 1; done",
+    "serve": "npx serve public",
+    "dev": "python3 -m http.server 8080 --directory public"
+  },
+  "devDependencies": {
+    "htmlhint": "^1.1.4"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "UNLICENSED"
+}
