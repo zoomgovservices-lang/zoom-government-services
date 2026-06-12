@@ -55,8 +55,13 @@
       ? '<div class="svc-turn"><span class="lbl">Turnaround</span>' + Z.esc(svc.turnaround) + "</div>"
       : "";
 
+    var banner = cat.image
+      ? '<div class="svc-banner"><img src="' + Z.esc(cat.image) + '" alt="' + Z.esc(cat.name) + '" loading="lazy"></div>'
+      : "";
+
     return (
-      '<article class="svc-card reveal" data-id="' + Z.esc(svc.id) + '" data-cat="' + Z.esc(svc.cat) + '">' +
+      '<article class="svc-card' + (cat.image ? " has-img" : "") + ' reveal" data-id="' + Z.esc(svc.id) + '" data-cat="' + Z.esc(svc.cat) + '">' +
+        banner +
         '<div class="svc-head">' +
           "<h3>" + Z.esc(svc.name) + "</h3>" + popular +
         "</div>" +

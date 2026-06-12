@@ -27,13 +27,19 @@
   var catGrid = Z.qs("#catGrid");
   if (catGrid) {
     catGrid.innerHTML = (Z.DATA.categories || []).map(function (c, i) {
+      var banner = c.image
+        ? '<div class="cat-banner"><img src="' + Z.esc(c.image) + '" alt="' + Z.esc(c.name) + '" loading="lazy">' +
+            '<span class="cat-ic" data-icon="' + Z.esc(c.icon) + '"></span></div>'
+        : '<div class="cat-ic" data-icon="' + Z.esc(c.icon) + '"></div>';
       return (
-        '<a class="cat-card reveal" data-delay="' + (i % 4) + '" href="services.html?cat=' + encodeURIComponent(c.id) + '">' +
-          '<div class="cat-ic" data-icon="' + Z.esc(c.icon) + '"></div>' +
-          "<h3>" + Z.esc(c.name) + "</h3>" +
-          '<div class="cat-auth">' + Z.esc(c.authority || "") + "</div>" +
-          "<p>" + Z.esc(c.blurb || "") + "</p>" +
-          '<span class="arrow-link">View services ' + Z.ICON("arrow-right") + "</span>" +
+        '<a class="cat-card' + (c.image ? " has-img" : "") + ' reveal" data-delay="' + (i % 4) + '" href="services.html?cat=' + encodeURIComponent(c.id) + '">' +
+          banner +
+          '<div class="cat-body">' +
+            "<h3>" + Z.esc(c.name) + "</h3>" +
+            '<div class="cat-auth">' + Z.esc(c.authority || "") + "</div>" +
+            "<p>" + Z.esc(c.blurb || "") + "</p>" +
+            '<span class="arrow-link">View services ' + Z.ICON("arrow-right") + "</span>" +
+          "</div>" +
         "</a>"
       );
     }).join("");

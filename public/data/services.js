@@ -48,17 +48,19 @@ window.ZOOM_DATA = {
 
   /* ---- Service categories ------------------------------------------------ */
   /* `icon` maps to an inline SVG defined in js/icons.js                       */
+  /* `image` is a service-area photo (assets/img/cat-<id>.jpg); rendered as a   */
+  /* card banner. Omit it and the card gracefully falls back to the icon only.  */
   categories: [
-    { id: "visas",      name: "Visas & Immigration",     icon: "passport",  authority: "GDRFA · ICP · Amer",  blurb: "Residence, family, employment, Golden & visit visas across all emirates." },
-    { id: "emirates-id",name: "Emirates ID",             icon: "id",        authority: "ICP",                 blurb: "Applications, typing, biometrics, renewals and replacements." },
-    { id: "business",   name: "Business Setup & Licensing",icon: "building",authority: "DET · Free Zones",    blurb: "Mainland, free zone and offshore company formation and trade licences." },
-    { id: "labour",     name: "Labour & MOHRE",          icon: "briefcase", authority: "MOHRE · Tasheel",     blurb: "Work permits, labour contracts, establishment cards and WPS." },
-    { id: "pro",        name: "PRO & Government Liaison", icon: "stamp",     authority: "Multi-authority",     blurb: "Document clearing, submissions, Ejari and power-of-attorney." },
-    { id: "attestation",name: "Attestation & Translation",icon: "globe",    authority: "MOFA · Embassies",    blurb: "Certificate attestation, legalisation and legal translation in 50+ languages." },
-    { id: "medical",    name: "Medical & Health",        icon: "health",    authority: "DHA · MOHAP · EHS",   blurb: "Residency medical fitness, health cards and healthcare licensing." },
-    { id: "tax",        name: "Tax, VAT & Accounting",   icon: "calculator",authority: "FTA",                 blurb: "VAT and corporate-tax registration, returns and bookkeeping." },
-    { id: "trademark",  name: "Trademark & IP",          icon: "shield",    authority: "Ministry of Economy", blurb: "Trademark registration, renewal and protection." },
-    { id: "banking",    name: "Banking & Insurance",     icon: "bank",      authority: "Partner network",     blurb: "Corporate bank-account assistance and business insurance." }
+    { id: "visas",      name: "Visas & Immigration",     icon: "passport",  authority: "GDRFA · ICP · Amer",  image: "assets/img/cat-visas.jpg",       blurb: "Residence, family, employment, Golden & visit visas across all emirates." },
+    { id: "emirates-id",name: "Emirates ID",             icon: "id",        authority: "ICP",                 image: "assets/img/cat-emirates-id.jpg", blurb: "Applications, typing, biometrics, renewals and replacements." },
+    { id: "business",   name: "Business Setup & Licensing",icon: "building",authority: "DET · Free Zones",    image: "assets/img/cat-business.jpg",    blurb: "Mainland, free zone and offshore company formation and trade licences." },
+    { id: "labour",     name: "Labour & MOHRE",          icon: "briefcase", authority: "MOHRE · Tasheel",     image: "assets/img/cat-labour.jpg",      blurb: "Work permits, labour contracts, establishment cards and WPS." },
+    { id: "pro",        name: "PRO & Government Liaison", icon: "stamp",     authority: "Multi-authority",     image: "assets/img/cat-pro.jpg",         blurb: "Document clearing, submissions, Ejari and power-of-attorney." },
+    { id: "attestation",name: "Attestation & Translation",icon: "globe",    authority: "MOFA · Embassies",    image: "assets/img/cat-attestation.jpg", blurb: "Certificate attestation, legalisation and legal translation in 50+ languages." },
+    { id: "medical",    name: "Medical & Health",        icon: "health",    authority: "DHA · MOHAP · EHS",   image: "assets/img/cat-medical.jpg",     blurb: "Residency medical fitness, health cards and healthcare licensing." },
+    { id: "tax",        name: "Tax, VAT & Accounting",   icon: "calculator",authority: "FTA",                 image: "assets/img/cat-tax.jpg",         blurb: "VAT and corporate-tax registration, returns and bookkeeping." },
+    { id: "trademark",  name: "Trademark & IP",          icon: "shield",    authority: "Ministry of Economy", image: "assets/img/cat-trademark.jpg",   blurb: "Trademark registration, renewal and protection." },
+    { id: "banking",    name: "Banking & Insurance",     icon: "bank",      authority: "Partner network",     image: "assets/img/cat-banking.jpg",     blurb: "Corporate bank-account assistance and business insurance." }
   ],
 
   /* ---- Services ---------------------------------------------------------- */
