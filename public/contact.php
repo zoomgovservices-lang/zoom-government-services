@@ -25,8 +25,8 @@
 declare(strict_types=1);
 
 /* ---- Configuration (no secrets; override via cPanel env vars) ------------- */
-$FALLBACK_TO   = 'hello@zoomgovernmentservices.com';                 // TODO: your inbox
-$FALLBACK_FROM = 'website@zoomgovernmentservices.com';               // a mailbox ON your domain
+$FALLBACK_TO   = 'hello@zoomgovermentservices.com';                 // TODO: your inbox
+$FALLBACK_FROM = 'website@zoomgovermentservices.com';               // a mailbox ON your domain
 $BRAND         = 'ZOOM Government Services';
 
 $TO   = getenv('CONTACT_TO')   ?: $FALLBACK_TO;

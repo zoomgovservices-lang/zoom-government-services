@@ -1,7 +1,7 @@
 # Competitive Analysis — ontimegov.com vs. ZOOM Government Services
 
 This document records the analysis of the reference competitor, **ontimegov.com**,
-and explains the decisions that make **zoomgovernmentservices.com** a stronger
+and explains the decisions that make **zoomgovermentservices.com** a stronger
 alternative for the UAE market.
 
 ---

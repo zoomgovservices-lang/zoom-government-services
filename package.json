@@ -2,8 +2,8 @@
   "name": "zoom-government-services",
   "version": "1.0.0",
   "private": true,
-  "description": "Marketing and service-catalogue website for ZOOM Government Services (zoomgovernmentservices.com) — a UAE government-services brokerage.",
-  "homepage": "https://zoomgovernmentservices.com",
+  "description": "Marketing and service-catalogue website for ZOOM Government Services (zoomgovermentservices.com) — a UAE government-services brokerage.",
+  "homepage": "https://zoomgovermentservices.com",
   "scripts": {
     "lint:html": "htmlhint \"public/**/*.html\"",
     "lint:js": "for f in public/js/*.js public/data/*.js; do node --check \"$f\" || exit 1; done",

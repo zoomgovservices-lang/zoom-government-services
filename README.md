@@ -1,6 +1,6 @@
 # ZOOM Government Services
 
-Marketing and service-catalogue website for **[zoomgovernmentservices.com](https://zoomgovernmentservices.com)** —
+Marketing and service-catalogue website for **[zoomgovermentservices.com](https://zoomgovermentservices.com)** —
 a private government-services provider for the **United Arab Emirates**. ZOOM
 prepares, submits, and follows up government applications (visas, Emirates ID,
 business setup, labour/MOHRE, attestation, medical, tax/VAT and more) on behalf of

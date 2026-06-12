@@ -24,7 +24,7 @@ a `// TODO` comment:
 meta: {
   phone:    "+971 4 000 0000",          // <- your real phone
   whatsapp: "+971500000000",            // <- digits only, no spaces/plus is fine
-  email:    "hello@zoomgovernmentservices.com",
+  email:    "hello@zoomgovermentservices.com",
   address:  "Sheikh Zayed Road, Dubai, United Arab Emirates",
   hours:    "Sun–Thu, 8:00 AM – 8:00 PM",
   social: {

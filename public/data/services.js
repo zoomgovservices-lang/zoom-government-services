@@ -20,7 +20,7 @@ window.ZOOM_DATA = {
   /* ---- Global flags & company facts -------------------------------------- */
   meta: {
     brand: "ZOOM Government Services",
-    domain: "zoomgovernmentservices.com",
+    domain: "zoomgovermentservices.com",
     currency: "AED",
     pricingStatus: "indicative", // "indicative" | "confirmed"
     market: "United Arab Emirates",

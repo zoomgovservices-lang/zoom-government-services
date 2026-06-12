@@ -5,7 +5,7 @@
 #
 # Required GitHub repository secrets (Settings → Secrets and variables →
 # Actions). NEVER commit these — they are injected at runtime only:
-#   FTP_SERVER       cPanel FTP host, e.g. ftp.zoomgovernmentservices.com
+#   FTP_SERVER       cPanel FTP host, e.g. ftp.zoomgovermentservices.com
 #   FTP_USERNAME     a dedicated FTP account (scoped to the web root)
 #   FTP_PASSWORD     that account's password
 #   FTP_SERVER_DIR   target directory WITH a trailing slash, e.g. /public_html/

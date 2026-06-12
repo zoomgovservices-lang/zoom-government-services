@@ -23,7 +23,7 @@ Sections:
 ## 1. Prerequisites
 
 - A **GoDaddy hosting plan with cPanel** (Linux/“cPanel” hosting — not a
-  Website-Builder plan) and the domain `zoomgovernmentservices.com` available to
+  Website-Builder plan) and the domain `zoomgovermentservices.com` available to
   point at it.
 - A **GitHub account** and this repository pushed to it.
 - For local work: **Node.js 18+** (for the linter / local server) and optionally
@@ -74,15 +74,15 @@ your main hosting password is never stored in CI.
 1. Log in to GoDaddy → your hosting product → **cPanel Admin**.
 2. In cPanel, open **Files → FTP Accounts**.
 3. Create a new FTP account:
-   - **Log In / Username:** e.g. `deploy@zoomgovernmentservices.com`
+   - **Log In / Username:** e.g. `deploy@zoomgovermentservices.com`
    - **Password:** generate a strong, unique password.
    - **Directory:** set it to your web root so the account is scoped there — for the
      primary domain this is usually `public_html`. (You can scope it tighter if you
      deploy to a subfolder.)
    - **Quota:** Unlimited (or as needed).
 4. Note the connection details cPanel shows for the account:
-   - **FTP server / host** — often your domain (`zoomgovernmentservices.com`) or a
-     host like `ftp.zoomgovernmentservices.com` / a server hostname GoDaddy lists.
+   - **FTP server / host** — often your domain (`zoomgovermentservices.com`) or a
+     host like `ftp.zoomgovermentservices.com` / a server hostname GoDaddy lists.
      If a plain hostname doesn't connect, try the server's hostname or IP from the
      cPanel sidebar (“General Information”).
    - **Username** — the full username you created (often includes `@yourdomain`).
@@ -104,8 +104,8 @@ secret”**, and add each of:
 
 | Secret name | Value | Example |
 |---|---|---|
-| `FTP_SERVER` | Your FTP host from cPanel | `zoomgovernmentservices.com` |
-| `FTP_USERNAME` | The scoped FTP account username | `deploy@zoomgovernmentservices.com` |
+| `FTP_SERVER` | Your FTP host from cPanel | `zoomgovermentservices.com` |
+| `FTP_USERNAME` | The scoped FTP account username | `deploy@zoomgovermentservices.com` |
 | `FTP_PASSWORD` | That account's password | *(the strong password you generated)* |
 | `FTP_SERVER_DIR` | Target directory **with a trailing slash** | `/public_html/` |
 
@@ -175,20 +175,20 @@ environment variables and falls back to sensible defaults:
 
 | Variable | Purpose | Default |
 |---|---|---|
-| `CONTACT_TO` | Inbox that receives enquiries | `hello@zoomgovernmentservices.com` |
-| `CONTACT_FROM` | From address on the notification email | `website@zoomgovernmentservices.com` |
+| `CONTACT_TO` | Inbox that receives enquiries | `hello@zoomgovermentservices.com` |
+| `CONTACT_FROM` | From address on the notification email | `website@zoomgovermentservices.com` |
 
 **Set them on GoDaddy/cPanel** in one of these ways:
 
 - **`.htaccess`** in your web root (simplest):
   ```apache
-  SetEnv CONTACT_TO "hello@zoomgovernmentservices.com"
-  SetEnv CONTACT_FROM "website@zoomgovernmentservices.com"
+  SetEnv CONTACT_TO "hello@zoomgovermentservices.com"
+  SetEnv CONTACT_FROM "website@zoomgovermentservices.com"
   ```
 - or a **`.user.ini`** / **MultiPHP INI Editor** entry, depending on your plan.
 
 **Deliverability tips:**
-- Use a **From address on your own domain** (`@zoomgovernmentservices.com`), created
+- Use a **From address on your own domain** (`@zoomgovermentservices.com`), created
   in cPanel → **Email Accounts** — not a Gmail/Yahoo address. Sending “as” an
   external provider will likely be rejected or spam-filtered.
 - Make sure your domain's **SPF** (and ideally **DKIM**) records exist so mail from
@@ -212,7 +212,7 @@ it is usually linked automatically. Otherwise:
 2. At your domain registrar, either:
    - set the **nameservers** to the hosting nameservers, **or**
    - create an **A record** for `@` → the server IP, and a **CNAME** for `www` →
-     `zoomgovernmentservices.com`.
+     `zoomgovermentservices.com`.
 3. Allow time for DNS propagation (minutes to a few hours).
 4. Add an **SSL certificate** (GoDaddy/cPanel “AutoSSL” or Let's Encrypt) and force
    **HTTPS** so the site loads securely.
