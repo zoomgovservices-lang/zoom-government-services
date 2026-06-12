@@ -15,17 +15,32 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=DM+Mono:wght@400;500&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
+  <!-- ============================ TOP BAR ============================ -->
+  <div class="topbar">
+    <div class="container">
+      <span class="tb-note"><span data-icon="clock"></span> Open 7 days — apply online or visit any ZOOM center</span>
+      <div class="tb-right">
+        <a class="tb-wa" data-bind="whatsapp-href" data-msg="Hello ZOOM, I'd like help with a government service." href="#"><span data-icon="whatsapp"></span> WhatsApp support</a>
+        <span class="tb-social">
+          <a data-social="instagram" href="#" aria-label="Instagram" data-icon="instagram"></a>
+          <a data-social="facebook" href="#" aria-label="Facebook" data-icon="facebook"></a>
+          <a data-social="linkedin" href="#" aria-label="LinkedIn" data-icon="linkedin"></a>
+        </span>
+      </div>
+    </div>
+  </div>
+
   <!-- ============================ HEADER ============================ -->
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="index.html" aria-label="ZOOM Government Services — home">
-        <img src="assets/logo.svg" alt="ZOOM Government Services">
+        <img src="assets/logo.png" alt="ZOOM Government Services">
       </a>
       <nav class="nav-links" id="primary-nav" aria-label="Primary">
         <a href="index.html" class="active">Home</a>
@@ -57,7 +72,10 @@
               <a class="btn btn-ghost" href="services.html">Browse all services</a>
             </div>
             <div class="hero-auth anim" data-d="5">
-              <span>GDRFA</span><span>ICP</span><span>MOHRE</span><span>DET</span><span>MOFA</span><span>FTA</span>
+              <span class="ha-label">Authorities we handle</span>
+              <div class="ha-chips">
+                <span>GDRFA</span><span>ICP</span><span>MOHRE</span><span>DET</span><span>MOFA</span><span>FTA</span>
+              </div>
             </div>
           </div>
 
@@ -119,6 +137,37 @@
       </div>
     </section>
 
+    <!-- ============================ WHO WE ARE ============================ -->
+    <section class="section bg-paper2">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-visual reveal">
+            <div class="about-panel dotmap">
+              <img class="about-mark" src="assets/logo.png" alt="ZOOM Government Services">
+              <div class="about-pill"><b>20+ years</b><span>of UAE government know-how</span></div>
+            </div>
+            <figure class="about-quote">
+              <span class="qm" data-icon="quote"></span>
+              <blockquote>Our job is simple: take the government paperwork off your plate and get it done right, the first time.</blockquote>
+              <figcaption><b>The ZOOM team</b><span>Government services specialists</span></figcaption>
+            </figure>
+          </div>
+          <div class="about-copy">
+            <span class="eyebrow">Who we are</span>
+            <h2>A private UAE government-services partner, in your corner</h2>
+            <p>ZOOM Government Services is a private service provider — not a government department. We prepare, submit and follow up your applications with the relevant UAE authorities and systems, including GDRFA, ICP, MOHRE, DET, MOFA, DHA and the FTA, so you don't have to navigate them yourself.</p>
+            <p>From a single visa to a fully licensed company, our team handles the documents, the typing, the submissions and the follow-up — with clear pricing and live status updates from start to finish.</p>
+            <ul class="about-points">
+              <li><span data-icon="check-circle"></span>Compliance-first, in line with current UAE regulations</li>
+              <li><span data-icon="check-circle"></span>One team across all seven emirates</li>
+              <li><span data-icon="check-circle"></span>Fixed service fees, confirmed before any work begins</li>
+            </ul>
+            <a class="btn btn-dark" href="about.html">More about ZOOM <span data-icon="arrow-right"></span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ============================ PROCESS ============================ -->
     <section class="section dotmap">
       <div class="container">
@@ -138,6 +187,34 @@
           <h2>The clear, faster way to deal with government</h2>
         </div>
         <div class="grid-cards cols-2" id="valueGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============================ LOCATIONS ============================ -->
+    <section class="section dotmap-faint">
+      <div class="container">
+        <div class="section-head locations-head">
+          <div>
+            <span class="eyebrow">Visit us</span>
+            <h2>Our one-stop-shop locations</h2>
+            <p>Walk in to any ZOOM center, or let us handle everything online — whichever suits you.</p>
+          </div>
+          <a class="arrow-link" href="contact.html">All locations &amp; contact <span data-icon="arrow-right"></span></a>
+        </div>
+        <div class="center-grid" id="centerGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============================ GREEN CTA STRIP ============================ -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="cta-strip">
+          <div class="cta-strip-copy">
+            <h2>Let us handle the paperwork.</h2>
+            <p>Focus on what matters while we navigate the government for you.</p>
+          </div>
+          <a class="btn btn-white btn-lg" href="contact.html">Apply online now <span data-icon="arrow-right"></span></a>
+        </div>
       </div>
     </section>
 
@@ -210,7 +287,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="assets/logo.svg" alt="ZOOM Government Services">
+          <img src="assets/logo.png" alt="ZOOM Government Services">
           <p>Your partner for fast, transparent UAE government services — visas, business setup, PRO, attestation and more, across all seven emirates.</p>
           <div class="footer-social">
             <a data-social="instagram" href="#" aria-label="Instagram" data-icon="instagram"></a>

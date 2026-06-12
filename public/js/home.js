@@ -66,6 +66,49 @@
     }).join("");
   }
 
+  /* ---- Service centers / locations --------------------------------------- */
+  var centerGrid = Z.qs("#centerGrid");
+  if (centerGrid) {
+    var centers = Z.DATA.centers || [];
+    var cards = centers.map(function (c, i) {
+      var tag = c.primary
+        ? '<span class="center-tag primary">Head office</span>'
+        : '<span class="center-tag">Open now</span>';
+      return (
+        '<div class="center-card reveal" data-delay="' + (i % 3) + '">' +
+          '<div class="center-head">' +
+            tag +
+            '<div class="center-pin" data-icon="pin"></div>' +
+            '<div class="center-area">' + Z.esc(c.area || "") + "</div>" +
+          "</div>" +
+          '<div class="center-body">' +
+            "<h3>" + Z.esc(c.name) + "</h3>" +
+            '<p class="center-line"><span data-icon="pin"></span>' + Z.esc(c.address || "") + "</p>" +
+            '<p class="center-line"><span data-icon="clock"></span>' + Z.esc(c.hours || "") + "</p>" +
+            '<a class="btn btn-ghost btn-block" target="_blank" rel="noopener" href="' +
+              encodeURI(c.map || "#") + '">Get directions ' + Z.ICON("arrow-up-right") + "</a>" +
+          "</div>" +
+        "</div>"
+      );
+    });
+
+    // When there are only a few physical centers, add an "online / remote"
+    // card so the row stays balanced and highlights that we work remotely.
+    if (centers.length < 3) {
+      cards.push(
+        '<div class="center-card center-online reveal" data-delay="1">' +
+          '<div class="center-body">' +
+            '<div class="center-pin solid" data-icon="globe"></div>' +
+            "<h3>Prefer to stay home?</h3>" +
+            '<p>Most services can be handled entirely online — share your documents and we submit, follow up and deliver remotely, anywhere in the UAE.</p>' +
+            '<a class="btn btn-primary btn-block" href="contact.html">Start online ' + Z.ICON("arrow-right") + "</a>" +
+          "</div>" +
+        "</div>"
+      );
+    }
+    centerGrid.innerHTML = cards.join("");
+  }
+
   /* ---- Packages preview (first three) ------------------------------------ */
   var pkgPreview = Z.qs("#pkgPreview");
   if (pkgPreview) {

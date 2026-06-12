@@ -62,3 +62,7 @@ desktop.ini
 *.sublime-workspace
 *.swp
 *~
+
+# Local agent / preview artifacts (not part of the site)
+.playwright-mcp/
+ontimegov-home.png

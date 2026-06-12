@@ -25,11 +25,11 @@ window.ZOOM_DATA = {
     pricingStatus: "indicative", // "indicative" | "confirmed"
     market: "United Arab Emirates",
     tagline: "Government services, brought closer.",
-    phone: "+971 4 000 0000",          // TODO: replace with real number
-    whatsapp: "+971500000000",          // TODO: replace with real WhatsApp number (no spaces)
-    email: "hello@zoomgovernmentservices.com", // TODO: replace
-    address: "Sheikh Zayed Road, Dubai, United Arab Emirates", // TODO: replace
-    hours: "Sun–Thu, 8:00 AM – 8:00 PM",
+    phone: "+971 6 520 7225",           // Call us — Ajman landline
+    whatsapp: "+971521835277",          // WhatsApp on the mobile (digits only after +)
+    email: "zoomgovservices@gmail.com",
+    address: "Horizon Tower, D Block, Office 201, Ajman, United Arab Emirates",
+    hours: "Mon–Fri, 10:00 AM – 6:00 PM",
     social: {
       instagram: "https://instagram.com/",   // TODO
       facebook: "https://facebook.com/",      // TODO
@@ -244,6 +244,17 @@ window.ZOOM_DATA = {
     { icon: "bolt",     title: "Fast, tracked processing",   text: "Clear turnaround estimates and live status updates on every file." },
     { icon: "globe",    title: "All of the UAE",             text: "Dubai and every emirate, across nine government authorities and systems." },
     { icon: "shield",   title: "Compliance-first",           text: "Done correctly the first time, in line with current UAE regulations." }
+  ],
+
+  /* ---- Service centers / locations --------------------------------------- */
+  /* PLACEHOLDER branches — replace names, addresses, hours and the Google     */
+  /* Maps links with your real centers. `primary: true` shows the "Head office"*/
+  /* tag. Add or remove entries freely; the Locations grid renders from here.   */
+  centers: [
+    { name: "Ajman — Head Office", area: "Horizon Tower", primary: true,
+      address: "Horizon Tower, D Block, Office 201, Ajman, United Arab Emirates",
+      hours: "Mon–Fri · 10:00 AM – 6:00 PM",
+      map: "https://www.google.com/maps/search/?api=1&query=Horizon+Tower+Ajman" }
   ],
 
   /* ---- FAQ --------------------------------------------------------------- */
