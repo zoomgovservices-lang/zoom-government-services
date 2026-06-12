@@ -305,11 +305,6 @@ body.menu-open .nav-toggle span::after { transform: translateY(-7px) rotate(-45d
 .cat-card.has-img:hover .cat-ic { background: var(--green-tint); color: var(--green-600); }
 .cat-card.has-img .cat-body { display: flex; flex-direction: column; flex: 1; padding: 36px 26px 26px; }
 
-.svc-card.has-img { padding-top: 0; overflow: hidden; }
-.svc-banner { height: 130px; margin: 0 -24px 18px; overflow: hidden; background: var(--blue-tint); }
-.svc-banner img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s var(--ease); }
-.svc-card.has-img:hover .svc-banner img { transform: scale(1.05); }
-
 .hero-bg {
   position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background: url("../assets/img/hero.jpg") center 28% / cover no-repeat;
