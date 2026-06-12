@@ -1,0 +1,44 @@
+name: Deploy to GitHub Pages
+
+# Publishes the static site in ./public to GitHub Pages so there is a free,
+# public preview URL (https://<user>.github.io/<repo>/) independent of the
+# GoDaddy/cPanel FTPS deploy in deploy.yml. Everything in public/ uses
+# relative paths, so it works correctly from the repo sub-path.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Pages (auto-enable)
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
