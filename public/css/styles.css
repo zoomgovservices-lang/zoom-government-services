@@ -347,6 +347,11 @@ body.menu-open .nav-toggle span::after { transform: translateY(-7px) rotate(-45d
 .svc-price .amt small { font-size: .8rem; color: var(--ink-faint); font-weight: 500; }
 .price-req { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--blue-700); letter-spacing: -.01em; line-height: 1.2; }
 .pkg-price .price-req { font-size: 1.5rem; }
+
+/* CEO / founder message signature */
+.ceo-sign { margin-top: 30px; padding-top: 22px; border-top: 1px solid var(--line); }
+.ceo-sign .sign-name { font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; color: var(--ink); letter-spacing: -.01em; }
+.ceo-sign .sign-role { color: var(--ink-soft); font-size: .92rem; margin-top: 2px; }
 .svc-turn { font-size: .8rem; color: var(--ink-soft); text-align: right; }
 .svc-turn .lbl { display: block; font-family: var(--font-mono); font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-faint); }
 .svc-includes { margin-top: 14px; display: grid; gap: 7px; }
