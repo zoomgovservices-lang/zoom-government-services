@@ -134,16 +134,14 @@
             '<div class="pkg-variant">' + Z.esc(p.variant || "") + "</div>" +
           "</div>" +
           '<div class="pkg-price">' +
-            '<span class="cur">' + Z.esc(Z.META.currency || "AED") + '</span>' +
-            '<span class="amt">' + Z.money(p.price) + "</span>" +
-            '<span class="note">indicative</span>' +
+            '<span class="price-req">Price on request</span>' +
           "</div>" +
           '<div class="pkg-perf"></div>' +
           '<div class="pkg-body">' +
             '<div class="grp-lbl">What\'s included</div>' +
             '<ul class="pkg-incl">' + incl + "</ul>" +
           "</div>" +
-          '<div class="pkg-foot"><a class="btn btn-dark btn-block" href="pricing.html">See full pricing</a></div>' +
+          '<div class="pkg-foot"><a class="btn btn-dark btn-block" href="pricing.html">See all packages</a></div>' +
         "</article>"
       );
     }).join("");

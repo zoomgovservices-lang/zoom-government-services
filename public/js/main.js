@@ -50,14 +50,9 @@
     return (DATA.categories || []).find(function (c) { return c.id === id; });
   }
 
-  // Render a price the consistent way across the site.
-  // Returns { html } so callers can place it. Honors price 0 + priceNote.
+  // Prices are not published — every service is quoted per case.
   function priceHTML(svc) {
-    if (!svc || (!svc.price && svc.price !== 0)) return '<span class="amt">On request</span>';
-    if (svc.price === 0) {
-      return '<span class="amt" style="font-size:1.1rem">' + esc(svc.priceNote || "On request") + "</span>";
-    }
-    return '<span class="amt">' + money(svc.price) + ' <small>' + esc(META.currency || "AED") + "</small></span>";
+    return '<span class="price-req">Price on request</span>';
   }
 
   // Expose shared helpers for page scripts.

@@ -3,12 +3,12 @@
    -----------------------------------------------------------------------------
    Two features driven entirely by window.ZOOM_DATA:
      1. Curated packages rendered as "boarding-pass" cards.
-     2. A live cost estimator: tick services by category, see a running total
-        with an indicative ± range, then jump to the contact form with the
-        chosen services pre-filled (?services=…) — fully stateless.
+     2. A service selector: tick the services you need by category, then jump
+        to the contact form with the selection pre-filled (?services=…) for an
+        exact, itemised quote — fully stateless. No prices are shown.
 
    ?add=<serviceId> on load pre-selects a service (used by the catalogue's
-   "Add to estimate" buttons) and opens + scrolls to its category.
+   "Add to quote" buttons) and opens + scrolls to its category.
    ============================================================================= */
 (function () {
   "use strict";
@@ -43,9 +43,7 @@
             '<div class="pkg-variant">' + Z.esc(p.variant || "") + "</div>" +
           "</div>" +
           '<div class="pkg-price">' +
-            '<span class="cur">' + Z.esc(Z.META.currency || "AED") + '</span>' +
-            '<span class="amt">' + Z.money(p.price) + "</span>" +
-            '<span class="note">indicative</span>' +
+            '<span class="price-req">Price on request</span>' +
           "</div>" +
           '<div class="pkg-perf"></div>' +
           '<div class="pkg-body">' +
@@ -70,17 +68,15 @@
   if (!estPanel) return;
 
   var selectedEl = Z.qs("#estSelected");
-  var totalEl = Z.qs("#estTotal");
   var rangeEl = Z.qs("#estRange");
   var quoteBtn = Z.qs("#estQuote");
 
   var selected = new Set();
 
-  // Group services by category, skipping any "on request" (price 0) items —
-  // those are quoted individually and would distort a numeric total.
+  // Every service in a category is selectable for a quote request.
   function servicesFor(catId) {
     return (Z.DATA.services || []).filter(function (s) {
-      return s.cat === catId && s.price > 0;
+      return s.cat === catId;
     });
   }
 
@@ -93,7 +89,6 @@
           '<div class="est-opt">' +
             '<input type="checkbox" class="chk" id="est-' + Z.esc(s.id) + '" value="' + Z.esc(s.id) + '">' +
             '<label for="est-' + Z.esc(s.id) + '">' + Z.esc(s.name) + "</label>" +
-            '<span class="opt-price">' + Z.money(s.price) + "</span>" +
           "</div>"
         );
       }).join("");
@@ -119,27 +114,20 @@
     var items = Array.prototype.slice.call(selected).map(Z.serviceById).filter(Boolean);
 
     if (!items.length) {
-      selectedEl.innerHTML = '<div class="est-empty">No services selected yet. Tick items on the left to build your estimate.</div>';
+      selectedEl.innerHTML = '<div class="est-empty">No services selected yet. Tick the services you need on the left.</div>';
     } else {
       selectedEl.innerHTML = items.map(function (s) {
-        return '<div class="row"><span>' + Z.esc(s.name) + "</span><span>" + Z.money(s.price) + "</span></div>";
+        return '<div class="row"><span>' + Z.esc(s.name) + "</span></div>";
       }).join("");
     }
 
-    var total = items.reduce(function (sum, s) { return sum + (s.price || 0); }, 0);
-    totalEl.textContent = Z.money(total) + " " + (Z.META.currency || "AED");
-
-    // Indicative range: government fees vary, so show ±8% rounded to AED 10.
-    if (total > 0) {
-      var lo = Math.round((total * 0.92) / 10) * 10;
-      var hi = Math.round((total * 1.08) / 10) * 10;
-      rangeEl.textContent = "Typical range " + Z.money(lo) + "–" + Z.money(hi) + " " + (Z.META.currency || "AED") +
-        " · government fees confirmed per case";
-    } else {
-      rangeEl.textContent = "Includes our service fee. Government fees confirmed per case.";
+    if (rangeEl) {
+      rangeEl.textContent = items.length
+        ? "We'll send an exact, itemised quote for these " + items.length + " service" + (items.length === 1 ? "" : "s") + ", including government fees."
+        : "Tick the services you need, then request your free quote.";
     }
 
-    // Update the "request exact quote" link with current selection.
+    // Carry the selection to the contact form for an exact quote.
     if (quoteBtn) {
       var ids = Array.prototype.slice.call(selected);
       quoteBtn.href = "contact.html" + (ids.length ? "?services=" + encodeURIComponent(ids.join(",")) : "");

@@ -64,12 +64,12 @@
         "<p>" + Z.esc(svc.summary || "") + "</p>" +
         '<ul class="svc-includes">' + includes + "</ul>" +
         '<div class="svc-meta">' +
-          '<div class="svc-price"><span class="from">From</span>' + Z.priceHTML(svc) + "</div>" +
+          '<div class="svc-price">' + Z.priceHTML(svc) + "</div>" +
           turn +
         "</div>" +
         '<div class="svc-actions">' +
           '<a class="btn btn-primary btn-sm svc-add" href="pricing.html?add=' + encodeURIComponent(svc.id) + '">' +
-            Z.ICON("calculator") + "Add to estimate</a>" +
+            Z.ICON("calculator") + "Add to quote</a>" +
           '<a class="btn btn-ghost btn-sm" href="compare.html?add=' + encodeURIComponent(svc.id) + '" title="Compare this service">' +
             Z.ICON("scale") + "</a>" +
         "</div>" +

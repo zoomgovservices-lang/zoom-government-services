@@ -81,8 +81,8 @@
     }).join("") + "</tr></thead>";
 
     var body = "<tbody>" +
-      rowAcross("Indicative price", function (s) {
-        return '<span class="cmp-price">' + (s.price > 0 ? Z.money(s.price) + " " + (Z.META.currency || "AED") : Z.esc(s.priceNote || "On request")) + "</span>";
+      rowAcross("Price", function (s) {
+        return '<span class="cmp-price">Price on request</span>';
       }) +
       rowAcross("Turnaround", function (s) { return Z.esc(s.turnaround || "—"); }) +
       rowAcross("Authority", function (s) { return Z.esc(s.authority || "—"); }) +

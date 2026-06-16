@@ -261,7 +261,7 @@ window.ZOOM_DATA = {
 
   /* ---- FAQ --------------------------------------------------------------- */
   faq: [
-    { q: "Are the prices on this site final?", a: "The prices shown are indicative so you can plan. Because UAE government fees change periodically and depend on your specific case, we confirm an exact, itemised quote before any work begins." },
+    { q: "How much will my service cost?", a: "Costs depend on your specific case and current UAE government fees, so we don't list fixed prices. Tell us what you need and we'll send an exact, itemised quote — including government fees — before any work begins." },
     { q: "Do you cover emirates other than Dubai?", a: "Yes. We process services across all seven emirates — Dubai, Abu Dhabi, Sharjah, Ajman, Fujairah, Ras Al Khaimah and Umm Al Quwain." },
     { q: "Is ZOOM a government department?", a: "No. ZOOM Government Services is a private service provider that prepares, submits and follows up your applications with the relevant UAE government authorities on your behalf." },
     { q: "What does your service fee include?", a: "Document preparation, typing where required, submission to the authority, follow-up, and status updates through to completion. Government fees are charged at cost and shown separately." },
