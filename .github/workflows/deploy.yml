@@ -77,6 +77,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Cache-busting: stamp the commit SHA onto local CSS/JS references so
+      # browsers always fetch the latest files after a deploy (no hard-refresh
+      # needed). Only the uploaded copy is changed; the repo stays clean.
+      - name: Cache-bust CSS/JS references
+        run: |
+          SHA="${GITHUB_SHA:0:8}"
+          echo "Stamping local CSS/JS with ?v=$SHA"
+          find public -name '*.html' -print0 | xargs -0 sed -E -i \
+            -e "s#(href=\"css/[A-Za-z0-9_.-]+\.css)\"#\1?v=$SHA\"#g" \
+            -e "s#(src=\"(js|data)/[A-Za-z0-9_.-]+\.js)\"#\1?v=$SHA\"#g"
+
       - name: Deploy ./public to web root
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
