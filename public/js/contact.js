@@ -6,9 +6,9 @@
         ?services=<id,id,id>     (multiple, from the estimator)
         ?package=<ref|name>      (a curated package)
    • Client-side validation with inline errors + honeypot anti-spam.
-   • Submits via fetch() to contact.php and shows a success / error banner.
-   • Degrades gracefully: if the PHP endpoint is unreachable (e.g. the page is
-     opened directly from disk during local preview), it offers a mailto:
+   • Submits via fetch() to FormSubmit (free email relay → business inbox) and
+     shows a success / error banner.
+   • Degrades gracefully: if the relay is unreachable, it offers a mailto:
      fallback so no enquiry is ever lost.
    ============================================================================= */
 (function () {
@@ -142,20 +142,32 @@
     var label = btn ? btn.innerHTML : "";
     if (btn) { btn.disabled = true; btn.innerHTML = "Sending…"; }
 
-    fetch("contact.php", {
+    // FormSubmit (free email relay) — delivers straight to the business inbox.
+    var payload = {
+      name: data.name,
+      email: data.email,          // becomes the Reply-To, so you can reply to the customer
+      phone: data.phone || "—",
+      service: data.service || "General enquiry",
+      message: data.message,
+      _subject: "New website enquiry — " + (data.service || "General enquiry"),
+      _template: "table",
+      _captcha: "false"
+    };
+
+    fetch("https://formsubmit.co/ajax/zoomgovservices@gmail.com", {
       method: "POST",
       headers: { "Content-Type": "application/json", "Accept": "application/json" },
-      body: JSON.stringify(data)
+      body: JSON.stringify(payload)
     })
-      .then(function (r) { return r.json().catch(function () { return { ok: r.ok }; }); })
+      .then(function (r) { return r.json().catch(function () { return {}; }); })
       .then(function (res) {
-        if (res && res.ok) {
+        if (res && (res.success === "true" || res.success === true)) {
           showStatus("ok",
             "<strong>Thank you, " + Z.esc(data.name) + ".</strong> Your enquiry has been sent — " +
             "we typically reply within 24 hours.");
           form.reset();
         } else {
-          throw new Error((res && res.error) || "send failed");
+          throw new Error((res && res.message) || "send failed");
         }
       })
       .catch(function () {
